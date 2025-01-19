@@ -70,7 +70,7 @@ export const navLinks = [
       desc: 'I developed a website specifically designed for students and educators, featuring user-defined routes along with secure authentication and authorization mechanisms. The platform seamlessly integrates Razorpay payment gateway, enabling students to purchase courses effortlessly. To enhance usability, I built an instructor dashboard that allows educators to track revenue, student details, and analytics using NPM Charts for comprehensive data visualization.',
       subdesc:
         'Additionally, I designed a student dashboard to monitor course completion progress effectively. The website includes a dynamic day-night mode toggle, implemented using Context API, providing users with the flexibility to switch between light and dark themes seamlessly, enhancing user experience',
-      href: 'https://github.com/Anshuman123-dev/EduX',
+      href: 'https://edu-x-puce.vercel.app',
       texture: '/textures/project/project1.mp4',
       logo: '/assets/project-logo1.png',
       logoStyle: {
@@ -107,7 +107,7 @@ export const navLinks = [
       desc: 'I developed a real-time messaging website using Socket.io, enabling seamless communication between users. The platform includes a friend request system, allowing users to send, accept, and manage friend requests through an intuitive notification bar. This feature ensures a smooth and personalized user experience.',
       subdesc:
         'Additionally, I implemented group creation functionality, enabling users to form groups by adding friends or members. The platform supports multimedia sharing, allowing users to exchange images, videos, and files during chats, enhancing collaboration and interaction.',
-      href: 'https://github.com/Anshuman123-dev/ChattX',
+      href: 'https://chatt-x.vercel.app',
       texture: '/textures/project/project2.mp4',
       logo: '/assets/project-logo2.png',
       logoStyle: {
