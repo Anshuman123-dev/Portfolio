@@ -140,7 +140,7 @@ import { FaMoon } from 'react-icons/fa';
 import { IoIosSunny } from 'react-icons/io';
 
 const NavItems = ({ onClick = () => {} }) => (
-  <ul className="nav-ul">
+  <ul className="nav-ul group">
     {navLinks.map((item) => (
       <li key={item.id} className="dark:nav-li text-black-500 hover:text-black font-generalsans max-sm:hover:bg-black-500 max-sm:w-full max-sm:rounded-md py-2 max-sm:px-5">
         {item.isFile ? (

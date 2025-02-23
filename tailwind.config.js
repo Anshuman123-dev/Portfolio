@@ -8,6 +8,7 @@ export default {
         generalsans: ['General Sans', 'sans-serif'], // Custom font family
       },
       colors: {
+        'custom-teal': 'rgb(13 114 123)',
         black: {
           DEFAULT: '#000',
           100: '#010103',

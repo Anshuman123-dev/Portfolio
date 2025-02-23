@@ -5,6 +5,7 @@ import { OrbitControls } from '@react-three/drei';
 import Developer from '../components/Developer.jsx';
 import CanvasLoader from '../components/Loading.jsx';
 import { workExperiences } from '../constants/index.js';
+import Reveal from '../components/Reveal.jsx';
 
 const WorkExperience = () => {
   const [animationName, setAnimationName] = useState('idle');
@@ -12,7 +13,9 @@ const WorkExperience = () => {
   return (
     <section className="c-space my-20 max-w-7xl mx-auto" id="work">
       <div className="w-full dark:text-white-600">
-        <p className="dark:head-text sm:text-4xl text-3xl font-semibold dark:text-black-500">My Certification & Achievements</p>
+        <Reveal>
+          <p className="dark:head-text sm:text-4xl text-3xl font-semibold dark:text-black-500">My Certification & Achievements</p>
+          </Reveal>
 
         <div className="dark:work-container grid lg:grid-cols-3 grid-cols-1 gap-5 mt-12">
           <div className="dark:work-canvas col-span-1 rounded-lg bg-gray-500 border border-white">
@@ -46,11 +49,21 @@ const WorkExperience = () => {
                   </div>
 
                   <div className="sm:p-5 px-2.5 py-5">
-                    <p className="font-bold text-black-100 dark:text-white-800">{item.name}</p>
+                    <p className="font-bold text-black-100 dark:text-white-800">
+                      <Reveal>
+                      {item.name}
+                      </Reveal>
+                      </p>
                     <p className="text-sm mb-5">
+                      <Reveal>
                       {item.pos} -- <span>{item.duration}</span>
+                      </Reveal>
                     </p>
-                    <p className="dark:group-hover:text-white group-hover:text-black-300 transition-all ease-in-out duration-500">{item.title}</p>
+                    <p className="dark:group-hover:text-white group-hover:text-black-300 transition-all ease-in-out duration-500">
+                      <Reveal>
+                        {item.title}
+                        </Reveal>
+                        </p>
                   </div>
                 </div>
               ))}

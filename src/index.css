@@ -170,6 +170,69 @@ body{
   );
 }
 
+.btn {
+  background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+  color: #003366;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-family: sans-serif;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s, box-shadow 0.3s, transform 0.3s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn:hover {
+  background: linear-gradient(135deg, #e0e0e0, #d0d0d0);
+  box-shadow: 0 0 10px rgba(0, 51, 102, 0.5);
+  transform: scale(1.05);
+}
+
+.btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 51, 102, 0.5);
+}
+
+.btn-ping {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #003366;
+  border-radius: 50%;
+  animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+  opacity: 0.6;
+}
+
+.btn-ping_dot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #003366;
+  border-radius: 50%;
+}
+
+@keyframes ping {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  75% {
+    transform: scale(2);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
 @keyframes wave-animation {
   0% {
     transform: rotate(0deg);
@@ -196,3 +259,4 @@ body{
     transform: rotate(0deg);
   }
 }
+

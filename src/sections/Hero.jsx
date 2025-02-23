@@ -13,6 +13,7 @@ import CanvasLoader from '../components/Loading.jsx';
 import HeroCamera from '../components/HeroCamera.jsx';
 import { calculateSizes } from '../constants/index.js';
 import { HackerRoom } from '../components/HackerRoom.jsx';
+import Reveal from '../components/Reveal.jsx';
 
 const Hero = () => {
   // Use media queries to determine screen size
@@ -24,11 +25,21 @@ const Hero = () => {
 
   return (
     <section className="min-h-screen w-full flex flex-col relative max-w-7xl mx-auto" id="home">
+      
       <div className="w-full mx-auto flex flex-col sm:mt-36 mt-20 c-space gap-3">
         <p className="sm:text-3xl text-xl font-medium text-black dark:text-white text-center font-generalsans">
+          <Reveal >
           Hi, I am <span className='p-0 font-bold'>Anshuman</span> <span className="waving-hand">👋</span>
+          </Reveal>
         </p>
-        <p className="hero_tag dark:text-gray_gradient text-black-500">From Code to Customer</p>
+        <div className='flex flex-col items-center'>
+          <Reveal className="flex justify-center">
+            <p className="hero_tag dark:text-gray_gradient  text-black-500 " style={{ margin: "0 auto" }}>
+              From Code to Customer
+            </p>
+          </Reveal>
+
+        </div>
       </div>
 
       <div className="w-full h-full absolute inset-0">
@@ -55,11 +66,12 @@ const Hero = () => {
         </Canvas>
       </div>
 
-      <div className="absolute bottom-7 left-0 right-0 w-full z-10 c-space">
-        <a href="#about" className="w-fit">
-          <Button name="Let's work together" isBeam containerClass="sm:w-fit w-full sm:min-w-96" />
-        </a>
-      </div>
+      <div className="absolute bottom-7 left-0 right-0 w-full z-10 flex justify-center items-center">
+  <a href="#about" className="w-fit">
+    <Button name="Let's work together" isBeam containerClass="sm:w-fit w-full sm:min-w-96" />
+  </a>
+</div>
+
     </section>
   );
 };

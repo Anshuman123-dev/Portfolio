@@ -7,6 +7,9 @@ import { Center, OrbitControls } from '@react-three/drei';
 import { myProjects } from '../constants/index.js';
 import CanvasLoader from '../components/Loading.jsx';
 import DemoComputer from '../components/DemoComputer.jsx';
+import Reveal from '../components/Reveal.jsx';
+import { motion } from 'framer-motion';
+import { slideIn } from '../utils/motion.js';
 
 const projectCount = myProjects.length;
 
@@ -31,10 +34,18 @@ const Projects = () => {
 
   return (
     <section className="c-space my-20 max-w-7xl mx-auto">
-      <p className="dark:head-text sm:text-4xl text-3xl font-semibold text-black">My Selected Work</p>
+      <Reveal>
 
+      <p className="dark:head-text sm:text-4xl text-3xl font-semibold text-black">My Selected Work</p>
+      </Reveal>
       <div className="grid lg:grid-cols-2 grid-cols-1 mt-12 gap-5 w-full">
-        <div className="flex flex-col gap-5 relative sm:p-10 py-10 px-5 shadow-2xl shadow-gray-400 dark:shadow-black-200">
+
+        {/* content */}
+
+        <motion.div
+    variants={slideIn("left", "tween", 0.2, 1)}
+    className="flex flex-col gap-5 relative sm:p-10 py-10 px-5 shadow-2xl shadow-gray-400 dark:shadow-black-200"
+  >
           <div className="absolute top-0 right-0">
             <img src={currentProject.spotlight} alt="spotlight" className="w-full h-96 object-cover rounded-xl" />
           </div>
@@ -44,10 +55,17 @@ const Projects = () => {
           </div>
 
           <div className="flex flex-col gap-5 text-black-300 dark:text-white-600 my-5">
-            <p className="dark:text-white text-2xl font-semibold animatedText">{currentProject.title}</p>
+            <p className="dark:text-white text-2xl font-semibold animatedText"><Reveal>
+              {currentProject.title}
+              </Reveal>
+              </p>
+            <Reveal>
 
             <p className="animatedText">{currentProject.desc}</p>
+            </Reveal>
+            <Reveal>
             <p className="animatedText">{currentProject.subdesc}</p>
+            </Reveal>
           </div>
 
           <div className="flex items-center justify-between flex-wrap gap-5">
@@ -78,9 +96,15 @@ const Projects = () => {
               <img src="/assets/right-arrow.png" alt="right arrow" className="w-4 h-4" />
             </button>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="border dark:border-black-300 bg-gray-400 dark:bg-black-200 rounded-lg h-96 md:h-full">
+        {/* 3D Model */}
+        <motion.div
+    variants={slideIn("right", "tween", 0.2, 1)}
+    className="border dark:border-black-300 bg-gray-400 dark:bg-black-200 rounded-lg h-96 md:h-full">
+
+    
+        
           <Canvas>
             <ambientLight intensity={Math.PI} />
             <directionalLight position={[10, 10, 5]} />
@@ -93,8 +117,8 @@ const Projects = () => {
             </Center>
             <OrbitControls maxPolarAngle={Math.PI / 2} enableZoom={false} />
           </Canvas>
+      </motion.div>
         </div>
-      </div>
     </section>
   );
 };
