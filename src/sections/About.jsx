@@ -342,6 +342,7 @@ import { useTheme } from '../context/ThemeContext.jsx';
 import { useInView } from 'framer-motion';
 import { motion } from 'framer-motion';
 import Reveal from '../components/Reveal.jsx';
+import HoverCard from '../components/common/HoverCard.jsx';
 
 const AnimatedContent = ({ children, delay = 0 }) => {
   const ref = useRef(null);
@@ -483,78 +484,73 @@ const About = () => {
       <div className="grid xl:grid-cols-3 xl:grid-rows-6 md:grid-cols-2 grid-cols-1 gap-6 auto-rows-min">
         {/* Personal Introduction */}
         <div className="col-span-1 xl:row-span-3">
-          <AnimatedContent delay={0.2}>
-            <div className={`w-full h-full rounded-xl p-6 flex flex-col gap-4 transition-all 
-              ${darkMode ? 'bg-black-200 border-gray-700' : 'bg-white border-gray-200'} 
-              border hover:shadow-lg`}>
-              <img 
-                src="/assets/grid1.png" 
-                alt="Introduction" 
-                className="w-full h-56 object-contain"
-              />
-              <div>
-                <h3 className={`text-xl font-semibold mb-3 ${darkMode ? 'text-white' : 'text-gray-800'}`}>
-                  <Reveal>
-                  Hi, I'm Anshuman Panda
-
-                  </Reveal>
-                </h3>
-                <Reveal>
-
-                <p className={`text-base ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-                  A dedicated full-stack developer passionate about creating impactful solutions. 
-                  Skilled in both front-end and back-end development with focus on efficiency and quality.
-                </p>
-                </Reveal>
-              </div>
-            </div>
-          </AnimatedContent>
-        </div>
+  <AnimatedContent delay={0.2}>
+    <HoverCard
+      className={`w-full h-full rounded-xl p-6 flex flex-col gap-4 transition-all 
+        ${darkMode ? 'bg-black-200 border-gray-700' : 'bg-white border-gray-200'} 
+        border hover:shadow-lg`}
+    >
+      <img
+        src="/assets/grid1.png"
+        alt="Introduction"
+        className="w-full h-56 object-contain"
+      />
+      <div>
+        <h3 className={`text-xl font-semibold mb-3 ${darkMode ? 'text-white' : 'text-gray-800'}`}>
+          <Reveal>Hi, I'm Anshuman Panda</Reveal>
+        </h3>
+        <Reveal>
+          <p className={`text-base ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+            A dedicated full-stack developer passionate about creating impactful solutions.
+            Skilled in both front-end and back-end development with focus on efficiency and quality.
+          </p>
+        </Reveal>
+      </div>
+    </HoverCard>
+  </AnimatedContent>
+</div>
 
         {/* Tech Stack */}
         <div className="col-span-1 xl:row-span-3">
-          <AnimatedContent delay={0.4}>
-            <div className={`w-full h-full rounded-xl p-6 flex flex-col gap-4 transition-all 
-              ${darkMode ? 'bg-black-200 border-gray-700' : 'bg-white border-gray-200'} 
-              border hover:shadow-lg`}>
-              <div className="grid grid-cols-3 grid-rows-2 gap-4 mb-4">
-                {technologies.map((tech, index) => (
-                  <ImageWithTooltip key={index} {...tech} darkMode={darkMode} />
-                ))}
-              </div>
-              <div>
-                <h3 className={`text-xl font-semibold mb-3 ${darkMode ? 'text-white' : 'text-gray-800'}`}>
-                  <Reveal>
-                  Tech Stack
-                  </Reveal>
-                </h3>
-                <ul className={`space-y-2 text-base ${darkMode ? 'text-gray-300' : 'text-gray-600'} gap-y-6`}>
-                  <div className='gap-y-4'>
-
-                  <Reveal>
-                    <ul className="space-y-2"> {/* Add vertical spacing here */}
-                      <li><strong>Languages:</strong> C++, JavaScript, Python</li>
-                      <li><strong>Frontend:</strong> React, Tailwind</li>
-                      <li><strong>Backend:</strong> Node.js, Express, MongoDB</li>
-                      <li><strong>Tools:</strong> VS Code, Git, Linux</li>
-                    </ul>
-                  </Reveal>
-                  </div>
-                </ul>
-              </div>
-            </div>
-          </AnimatedContent>
-        </div>
+  <AnimatedContent delay={0.4}>
+    <HoverCard
+      className={`w-full h-full rounded-xl p-6 flex flex-col gap-4 transition-all 
+        ${darkMode ? 'bg-black-200 border-gray-700' : 'bg-white border-gray-200'} 
+        border hover:shadow-lg`}
+    >
+      <div className="grid grid-cols-3 grid-rows-2 gap-4 mb-4">
+        {technologies.map((tech, index) => (
+          <ImageWithTooltip key={index} {...tech} darkMode={darkMode} />
+        ))}
+      </div>
+      <div>
+        <h3 className={`text-xl font-semibold mb-3 ${darkMode ? 'text-white' : 'text-gray-800'}`}>
+          <Reveal>Tech Stack</Reveal>
+        </h3>
+        <ul className={`space-y-2 text-base ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+          <Reveal>
+            <ul className="space-y-2">
+              <li><strong>Languages:</strong> C++, JavaScript, Python</li>
+              <li><strong>Frontend:</strong> React, Tailwind</li>
+              <li><strong>Backend:</strong> Node.js, Express, MongoDB</li>
+              <li><strong>Tools:</strong> VS Code, Git, Linux</li>
+            </ul>
+          </Reveal>
+        </ul>
+      </div>
+    </HoverCard>
+  </AnimatedContent>
+</div>
 
         {/* Globe Component */}
         <div className="col-span-1 xl:row-span-4">
   <AnimatedContent delay={0.6}>
-    <div className={`w-full h-full rounded-xl p-6 flex flex-col gap-4 transition-all 
-      ${darkMode ? 'bg-black-200 border-gray-700' : 'bg-white border-gray-200'} 
-      border hover:shadow-lg`}>
-      
-      {/* Globe Container with isolated hover events */}
-      <div 
+    <HoverCard
+      className={`w-full h-full rounded-xl p-6 flex flex-col gap-4 transition-all 
+        ${darkMode ? 'bg-black-200 border-gray-700' : 'bg-white border-gray-200'} 
+        border hover:shadow-lg`}
+    >
+      <div
         className="relative w-full h-72"
         onMouseEnter={() => handleGlobeView(true)}
         onMouseLeave={() => handleGlobeView(false)}
@@ -566,137 +562,129 @@ const About = () => {
           backgroundColor="rgba(0, 0, 0, 0)"
           showAtmosphere
           showGraticules
-          globeImageUrl={darkMode ? 
-            "//unpkg.com/three-globe/example/img/earth-night.jpg" : 
-            "//unpkg.com/three-globe/example/img/earth-day.jpg"}
-            labelsData={[
-                                {
-                                  lat: 20.9517,
-                                  lng: 85.0985,
-                                  text: 'Odisha, India',
-                                  color: 'red',
-                                  size: 30,
-                                  fontSize: 16,
-                                  fontWeight: 'bold'
-                                },
-                              ]}
-                              labelColor={() => darkMode ? 'blue' : 'black'}
-                              labelSize={2}
-                              labelDotRadius={0.5}
-                              labelAltitude={0.05}
+          globeImageUrl={
+            darkMode
+              ? "//unpkg.com/three-globe/example/img/earth-night.jpg"
+              : "//unpkg.com/three-globe/example/img/earth-day.jpg"
+          }
+          labelsData={[
+            {
+              lat: 20.9517,
+              lng: 85.0985,
+              text: 'Odisha, India',
+              color: 'red',
+              size: 30,
+              fontSize: 16,
+              fontWeight: 'bold'
+            },
+          ]}
+          labelColor={() => (darkMode ? 'blue' : 'black')}
+          labelSize={2}
+          labelDotRadius={0.5}
+          labelAltitude={0.05}
         />
       </div>
-
-      {/* Stable Content Below Globe */}
       <div className="mt-4">
         <h3 className={`text-xl font-semibold mb-3 ${darkMode ? 'text-white' : 'text-gray-800'}`}>
-          <Reveal>
-          Flexible Collaboration
-          </Reveal>
+          <Reveal>Flexible Collaboration</Reveal>
         </h3>
         <p className={`text-base ${darkMode ? 'text-gray-300' : 'text-gray-600'} mb-6`}>
           <Reveal>
-            Based in Odisha, India. Open to remote global projects or on-site work in India, 
+            Based in Odisha, India. Open to remote global projects or on-site work in India,
             with flexibility across time zones.
           </Reveal>
         </p>
         <div className="mt-auto">
           <a href="#contact" className="inline-block w-full">
-            <Button 
-              name="Contact Me" 
-              isBeam 
+            <Button
+              name="Contact Me"
+              isBeam
               containerClass="w-full hover:scale-105 transition-transform"
             />
           </a>
         </div>
       </div>
-    </div>
+    </HoverCard>
   </AnimatedContent>
-        </div>
+</div>
 
         {/* Passion Section */}
         <div className="xl:col-span-2 xl:row-span-3">
-          <AnimatedContent delay={0.8}>
-            <div className={`w-full h-full rounded-xl p-6 flex flex-col gap-4 transition-all 
-              ${darkMode ? 'bg-black-200 border-gray-700' : 'bg-white border-gray-200'} 
-              border hover:shadow-lg`}>
-              <img
-                src="/assets/grid3.png"
-                alt="Passion"
-                className="w-full h-56 object-contain hover:scale-105 transition-transform"
-              />
-              <div>
-                <h3 className={`text-xl font-semibold mb-3 ${darkMode ? 'text-white' : 'text-gray-800'}`}>
-                  <Reveal>
-                  Coding Passion
-                  </Reveal>
-                </h3>
-                <p className={`text-base ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-                  <Reveal>
-                  Transforming ideas into solutions through code. Continuously learning and 
-                  innovating to solve complex problems and build impactful applications.
-                  </Reveal>
-                </p>
-              </div>
-            </div>
-          </AnimatedContent>
-        </div>
+  <AnimatedContent delay={0.8}>
+    <HoverCard
+      className={`w-full h-full rounded-xl p-6 flex flex-col gap-4 transition-all 
+        ${darkMode ? 'bg-black-200 border-gray-700' : 'bg-white border-gray-200'} 
+        border hover:shadow-lg`}
+    >
+      <img
+        src="/assets/grid3.png"
+        alt="Passion"
+        className="w-full h-56 object-contain hover:scale-105 transition-transform"
+      />
+      <div>
+        <h3 className={`text-xl font-semibold mb-3 ${darkMode ? 'text-white' : 'text-gray-800'}`}>
+          <Reveal>Coding Passion</Reveal>
+        </h3>
+        <p className={`text-base ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+          <Reveal>
+            Transforming ideas into solutions through code. Continuously learning and
+            innovating to solve complex problems and build impactful applications.
+          </Reveal>
+        </p>
+      </div>
+    </HoverCard>
+  </AnimatedContent>
+</div>
 
         {/* Contact Section */}
         <div className="xl:col-span-1 xl:row-span-2">
-          <AnimatedContent delay={1}>
-            <div className={`w-full h-full rounded-xl p-6 flex flex-col gap-4 transition-all 
-              ${darkMode ? 'bg-black-200 border-gray-700' : 'bg-white border-gray-200'} 
-              border hover:shadow-lg`}>
-              <img
-                src="/assets/grid4.png"
-                alt="Contact"
-                className="w-full h-32 object-cover rounded-lg"
-              />
-              <div className="space-y-4">
-                <h3 className={`text-center text-lg font-medium ${darkMode ? 'text-white' : 'text-gray-800'}`}>
-                  <Reveal>
-
-                    Contact Me
-                  </Reveal>
-                </h3>
-                <div 
-                  className={`flex items-center gap-3 p-3 rounded-lg transition-colors cursor-pointer
-                    ${darkMode ? 'hover:bg-gray-700' : 'hover:bg-gray-100'}`}
-                  onClick={() => handleCopy('anshumanpanda742@gmail.com', setHasCopiedEmail)}
-                >
-                  <img 
-                    src={hasCopiedEmail ? '/assets/tick.svg' : '/assets/copy.svg'} 
-                    alt="Copy" 
-                    className="w-5 h-5"
-                  />
-                  <span className={`text-base ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-                    <Reveal>
-                      anshumanpanda742@gmail.com
-                    </Reveal>
-                  </span>
-                </div>
-                <div 
-                  className={`flex items-center gap-3 p-3 rounded-lg transition-colors cursor-pointer
-                    ${darkMode ? 'hover:bg-gray-700' : 'hover:bg-gray-100'}`}
-                  onClick={() => handleCopy('7008700362', setHasCopiedNumber)}
-                >
-                  <img 
-                    src={hasCopiedNumber ? '/assets/tick.svg' : '/assets/copy.svg'} 
-                    alt="Copy" 
-                    className="w-5 h-5"
-                  />
-                  <span className={`text-base ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-                    <Reveal>
-
-                      7008700362
-                    </Reveal>
-                  </span>
-                </div>
-              </div>
-            </div>
-          </AnimatedContent>
+  <AnimatedContent delay={1}>
+    <HoverCard
+      className={`w-full h-full rounded-xl p-6 flex flex-col gap-4 transition-all 
+        ${darkMode ? 'bg-black-200 border-gray-700' : 'bg-white border-gray-200'} 
+        border hover:shadow-lg`}
+    >
+      <img
+        src="/assets/grid4.png"
+        alt="Contact"
+        className="w-full h-32 object-cover rounded-lg"
+      />
+      <div className="space-y-4">
+        <h3 className={`text-center text-lg font-medium ${darkMode ? 'text-white' : 'text-gray-800'}`}>
+          <Reveal>Contact Me</Reveal>
+        </h3>
+        <div
+          className={`flex items-center gap-3 p-3 rounded-lg transition-colors cursor-pointer
+            ${darkMode ? 'hover:bg-gray-700' : 'hover:bg-gray-100'}`}
+          onClick={() => handleCopy('anshumanpanda742@gmail.com', setHasCopiedEmail)}
+        >
+          <img
+            src={hasCopiedEmail ? '/assets/tick.svg' : '/assets/copy.svg'}
+            alt="Copy"
+            className="w-5 h-5"
+          />
+          <span className={`text-base ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+            <Reveal>anshumanpanda742@gmail.com</Reveal>
+          </span>
         </div>
+        <div
+          className={`flex items-center gap-3 p-3 rounded-lg transition-colors cursor-pointer
+            ${darkMode ? 'hover:bg-gray-700' : 'hover:bg-gray-100'}`}
+          onClick={() => handleCopy('7008700362', setHasCopiedNumber)}
+        >
+          <img
+            src={hasCopiedNumber ? '/assets/tick.svg' : '/assets/copy.svg'}
+            alt="Copy"
+            className="w-5 h-5"
+          />
+          <span className={`text-base ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+            <Reveal>7008700362</Reveal>
+          </span>
+        </div>
+      </div>
+    </HoverCard>
+  </AnimatedContent>
+</div>
       </div>
     </section>
   );

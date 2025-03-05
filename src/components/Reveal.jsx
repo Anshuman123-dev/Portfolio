@@ -9,26 +9,30 @@ const Reveal = ({ children, width = "fit-content", delay = 0.25 }) => {
 
   useEffect(() => {
     if (isInView) {
-      mainControls.start("visible");
       slideControls.start("visible");
+      mainControls.start("visible");
     }
   }, [isInView, mainControls, slideControls]);
 
   const isBlockElement = React.Children.toArray(children).some(
-    child => React.isValidElement(child) && 
-      ['div', 'p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'li'].includes(child.type)
+    child =>
+      React.isValidElement(child) &&
+      ["div", "p", "h1", "h2", "h3", "h4", "h5", "h6", "ul", "li"].includes(
+        child.type
+      )
   );
 
   return (
-    <div 
+    <div
       ref={ref}
       style={{
         position: "relative",
         display: isBlockElement ? "block" : "inline-block",
         width,
-        overflow: "hidden"
+        overflow: "hidden",
       }}
     >
+      {/* Main content (text/children) */}
       <motion.div
         variants={{
           hidden: { opacity: 0, y: 20 },
@@ -36,23 +40,23 @@ const Reveal = ({ children, width = "fit-content", delay = 0.25 }) => {
         }}
         initial="hidden"
         animate={mainControls}
-        transition={{ 
-          duration: 0.5, 
-          delay: delay, // Added configurable delay
-          ease: "easeOut" 
+        transition={{
+          duration: 0.5,
+          delay: delay + 0.5, // Starts after overlay completes
+          ease: "easeOut",
         }}
         style={{ display: "inherit" }}
       >
-        {React.Children.map(children, child => 
-          React.isValidElement(child) ?
-            React.cloneElement(child, {
-              style: { ...child.props.style, position: "relative" }
-            }) :
-            child
+        {React.Children.map(children, (child) =>
+          React.isValidElement(child)
+            ? React.cloneElement(child, {
+                style: { ...child.props.style, position: "relative" },
+              })
+            : child
         )}
       </motion.div>
 
-      {/* Sliding overlay with matching delay */}
+      {/* Sliding overlay */}
       <motion.div
         variants={{
           hidden: { left: 0 },
@@ -60,10 +64,10 @@ const Reveal = ({ children, width = "fit-content", delay = 0.25 }) => {
         }}
         initial="hidden"
         animate={slideControls}
-        transition={{ 
-          duration: 0.5, 
-          delay: delay + 0.1, // Slightly later start
-          ease: "easeIn" 
+        transition={{
+          duration: 0.5,
+          delay: delay, // Starts at delay
+          ease: "easeIn",
         }}
         style={{
           position: "absolute",

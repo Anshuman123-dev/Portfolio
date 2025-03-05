@@ -15,6 +15,8 @@ import { calculateSizes } from '../constants/index.js';
 import { HackerRoom } from '../components/HackerRoom.jsx';
 import Reveal from '../components/Reveal.jsx';
 
+
+
 const Hero = () => {
   // Use media queries to determine screen size
   const isSmall = useMediaQuery({ maxWidth: 440 });
@@ -23,9 +25,11 @@ const Hero = () => {
 
   const sizes = calculateSizes(isSmall, isMobile, isTablet);
 
+
   return (
     <section className="min-h-screen w-full flex flex-col relative max-w-7xl mx-auto" id="home">
       
+      {/* Heading Section */}
       <div className="w-full mx-auto flex flex-col sm:mt-36 mt-20 c-space gap-3">
         <p className="sm:text-3xl text-xl font-medium text-black dark:text-white text-center font-generalsans">
           <Reveal >
